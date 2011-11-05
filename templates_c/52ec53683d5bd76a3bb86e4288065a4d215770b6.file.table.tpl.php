@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-11-03 11:05:16
+<?php /* Smarty version Smarty-3.0.7, created on 2011-11-04 19:51:54
          compiled from "templates/table.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1401490424eb2675cc025d9-99971542%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:9740166034eb4344a620227-98664739%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '52ec53683d5bd76a3bb86e4288065a4d215770b6' => 
     array (
       0 => 'templates/table.tpl',
-      1 => 1320314715,
+      1 => 1320432712,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1401490424eb2675cc025d9-99971542',
+  'nocache_hash' => '9740166034eb4344a620227-98664739',
   'function' => 
   array (
   ),
@@ -33,6 +33,7 @@ if (!is_callable('smarty_modifier_escape')) include 'smarty/plugins/modifier.esc
 	<input type="radio" name="order" value="DESC" <?php if ($_smarty_tpl->getVariable('order')->value=='DESC'){?> checked<?php }?>> Descendente</input>
 	<input type="submit" value="Ordenar">
 </form>
+
 <table border="0" >
 <?php if ($_smarty_tpl->getVariable('detailView')->value!=''){?>
 	<th bgcolor="#d1d1d1">&nbsp;</th>
@@ -59,12 +60,12 @@ if ($_smarty_tpl->_count($_from) > 0){
 		<tr bgcolor="<?php echo smarty_function_cycle(array('values'=>"#dedede,#eeeeee",'advance'=>true),$_smarty_tpl);?>
 ">
 		<?php if ($_smarty_tpl->getVariable('detailView')->value!=''){?>
-			<td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+			<td><a class="ovalbutton" href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=open&view=<?php echo $_smarty_tpl->getVariable('detailView')->value;?>
 &id=<?php echo $_smarty_tpl->getVariable('record')->value['id'];?>
 &masterId=<?php echo $_smarty_tpl->getVariable('record')->value['id'];?>
 "  >
-				<button>&darr;</button>	
+				<span>&darr;</span>
 				</a>
 			</td>
 		<?php }?>
@@ -84,17 +85,17 @@ if ($_smarty_tpl->_count($_from) > 0){
 				</td>        
 			<?php }} ?>
 			<?php if ($_smarty_tpl->getVariable('data')->value->edit=="true"){?>
-				<td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+				<td><a class="ovalbutton" href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=edit&id=<?php echo $_smarty_tpl->getVariable('record')->value['id'];?>
 "  >
-					<button>.</button></a>
+					<span>.</span></a>
 				</td>
 			<?php }?>
 			<?php if ($_smarty_tpl->getVariable('data')->value->delete=="true"){?>
-				<td><a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+				<td><a class="ovalbutton" href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=delete&id=<?php echo $_smarty_tpl->getVariable('record')->value['id'];?>
 ">
-					<button>X</button></a>
+					<span>X</span></a>
 				</td>
 			<?php }?>
 		</tr>
@@ -107,34 +108,34 @@ if ($_smarty_tpl->_count($_from) > 0){
 <table border="0">
 	<tr>
 		<td>
-			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+			<a class="ovalbutton" href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=goFirst">
-				<button>&#124;&lt;</button></a>
+				<span>&#124;&lt;</span></a>
 			</a>
 		</td>
 		<td>
-			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+			<a class="ovalbutton" href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=goPrev">
-				<button>&lt;</button></a>
+				<span>&lt;</span></a>
 			</a>
 		</td>
 		<td>
-			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+			<a class="ovalbutton" href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=goNext">
-				<button>&gt;</button></a>
+				<span>&gt;</span></a>
 			</a>
 		</td>
 		<td>
-			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+			<a class="ovalbutton" href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=goLast">
-				<button>&gt;&#124;</button></a>
+				<span>&gt;&#124;</span></a>
 			</a>
 		</td>
 <?php if ($_smarty_tpl->getVariable('data')->value->add=="true"){?>
 		<td>
-			<a href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
+			<a class="ovalbutton" href="<?php echo $_smarty_tpl->getVariable('SCRIPT_NAME')->value;?>
 ?action=add">
-				<button>+</button></a>
+				<span>+</span></a>
 			</a>
 		</td>
 <?php }?>

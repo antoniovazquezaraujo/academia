@@ -7,6 +7,7 @@
 	<input type="radio" name="order" value="DESC" {if $order eq 'DESC'} checked{/if}> Descendente</input>
 	<input type="submit" value="Ordenar">
 </form>
+
 <table border="0" >
 {if $detailView != ''}
 	<th bgcolor="#d1d1d1">&nbsp;</th>
@@ -23,8 +24,8 @@
 	{foreach from=$records item="record"}
 		<tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
 		{if $detailView != ''}
-			<td><a href="{$SCRIPT_NAME}?action=open&view={$detailView}&id={$record.id}&masterId={$record.id}"  >
-				<button>&darr;</button>	
+			<td><a class="ovalbutton" href="{$SCRIPT_NAME}?action=open&view={$detailView}&id={$record.id}&masterId={$record.id}"  >
+				<span>&darr;</span>
 				</a>
 			</td>
 		{/if}
@@ -38,13 +39,13 @@
 				</td>        
 			{/foreach}
 			{if $data->edit eq "true"}
-				<td><a href="{$SCRIPT_NAME}?action=edit&id={$record.id}"  >
-					<button>.</button></a>
+				<td><a class="ovalbutton" href="{$SCRIPT_NAME}?action=edit&id={$record.id}"  >
+					<span>.</span></a>
 				</td>
 			{/if}
 			{if $data->delete eq "true"}
-				<td><a href="{$SCRIPT_NAME}?action=delete&id={$record.id}">
-					<button>X</button></a>
+				<td><a class="ovalbutton" href="{$SCRIPT_NAME}?action=delete&id={$record.id}">
+					<span>X</span></a>
 				</td>
 			{/if}
 		</tr>
@@ -57,29 +58,29 @@
 <table border="0">
 	<tr>
 		<td>
-			<a href="{$SCRIPT_NAME}?action=goFirst">
-				<button>&#124;&lt;</button></a>
+			<a class="ovalbutton" href="{$SCRIPT_NAME}?action=goFirst">
+				<span>&#124;&lt;</span></a>
 			</a>
 		</td>
 		<td>
-			<a href="{$SCRIPT_NAME}?action=goPrev">
-				<button>&lt;</button></a>
+			<a class="ovalbutton" href="{$SCRIPT_NAME}?action=goPrev">
+				<span>&lt;</span></a>
 			</a>
 		</td>
 		<td>
-			<a href="{$SCRIPT_NAME}?action=goNext">
-				<button>&gt;</button></a>
+			<a class="ovalbutton" href="{$SCRIPT_NAME}?action=goNext">
+				<span>&gt;</span></a>
 			</a>
 		</td>
 		<td>
-			<a href="{$SCRIPT_NAME}?action=goLast">
-				<button>&gt;&#124;</button></a>
+			<a class="ovalbutton" href="{$SCRIPT_NAME}?action=goLast">
+				<span>&gt;&#124;</span></a>
 			</a>
 		</td>
 {if $data->add eq "true"}
 		<td>
-			<a href="{$SCRIPT_NAME}?action=add">
-				<button>+</button></a>
+			<a class="ovalbutton" href="{$SCRIPT_NAME}?action=add">
+				<span>+</span></a>
 			</a>
 		</td>
 {/if}
