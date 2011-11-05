@@ -17,6 +17,7 @@ class Grupo extends MasterTable{
 			"edit"     : "true",
 			"delete"   : "true",
 			"colModel" : [
+				{"type":"text", "display": "Id",     "value" : "id",      "width" : 150 },
 				{"type":"text", "display": "Nombre", "value" : "nombre",      "width" : 150 }
 			]
 		}';

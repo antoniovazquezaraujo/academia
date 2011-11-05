@@ -18,6 +18,7 @@ class Alumno extends MasterTable{
 			"edit"     : "true",
 			"delete"   : "true",
 			"colModel" : [
+				{"type":"text", "display": "Id",       "value" : "id",       "width" : 150 },
 				{"type":"text", "display": "Nombre",   "value" : "nombre",   "width" : 150 },
 				{"type":"text", "display": "Dni",      "value" : "dni",      "width" : 150 },
 				{"type":"text", "display": "Teléfono", "value" : "telefono", "width" : 250 },

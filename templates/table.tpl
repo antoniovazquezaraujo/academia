@@ -1,14 +1,17 @@
-<form action=  "{$SCRIPT_NAME}?action=orderBy" method="post">
+
+<form name="tableForm" action=  "{$SCRIPT_NAME}?action=orderBy" method="post">
 	<select name="orderField">
 		{html_options values=array_keys($records[0]) output=array_keys($records[0]) selected ={$orderField}}
 	</select>
 	<input type="text" name="valueSearch" value="{$valueSearch}"/>
-	<input type="radio" name="order" value="ASC" {if $order eq 'ASC'} checked{/if}> Ascendente</input>
-	<input type="radio" name="order" value="DESC" {if $order eq 'DESC'} checked{/if}> Descendente</input>
-	<input type="submit" value="Ordenar">
+	<input type="radio"  name="order" value="ASC" {if $order eq 'ASC'} checked{/if}>
+				<span>ASC</span></input>
+	<input type="radio"  name="order" value="DESC" {if $order eq 'DESC'} checked{/if}>
+				<span>DESC</span></input>
+	<input type="submit" value="Ordenar" />
 </form>
 
-<table border="0" >
+<table border="3" >
 {if $detailView != ''}
 	<th bgcolor="#d1d1d1">&nbsp;</th>
 {/if}
@@ -24,7 +27,8 @@
 	{foreach from=$records item="record"}
 		<tr bgcolor="{cycle values="#dedede,#eeeeee" advance=true}">
 		{if $detailView != ''}
-			<td><a class="ovalbutton" href="{$SCRIPT_NAME}?action=open&view={$detailView}&id={$record.id}&masterId={$record.id}"  >
+			<td><a class="ovalbutton" 
+				href="{$SCRIPT_NAME}?action=open&view={$detailView}&id={$record.id}&masterId={$record.id}"  >
 				<span>&darr;</span>
 				</a>
 			</td>
@@ -33,8 +37,10 @@
 				<td>
 					{if $col->type eq "image"}
 						<img src="images/{$record.{$col->value}|escape}"></img>
+					{else if $col->type eq "password"}
+						<input type="password" readonly value="{$record.{$col->value}|escape}"</input>
 					{else}
-						{$record.{$col->value}|escape}
+						<input type="text" readonly value="{$record.{$col->value}|escape}"</input>					
 					{/if}
 				</td>        
 			{/foreach}
@@ -54,7 +60,9 @@
         <td colspan="2">No hay datos</td>
       </tr>
   {/foreach}
+
 </table>
+{$numRecords} registros
 <table border="0">
 	<tr>
 		<td>

@@ -203,6 +203,9 @@ class Table{
 		if($this->fromRec < $this->getNumRecords() - $this->recsByPage){
 			$this->fromRec += $this->recsByPage;
 		}
+		if($this->fromRec > $this->getNumRecords()){
+			$this->fromRec = $this->getNumRecords();
+		}		
 		$_SESSION['fromRec'] = $this->fromRec;
 	}
 	function goLast(){
@@ -251,6 +254,7 @@ class Table{
 			$this->tpl->assign('db_action','update');
 		}
 
+		$this->tpl->assign('view', $_SESSION['view']);
 		$this->tpl->assign('errors', $this->errors);
 		if(isset($this->templateData[$this->formTemplate])){
 		//	$this->tpl->assign('data', $this->templateData[$this->formTemplate]);
@@ -267,6 +271,9 @@ class Table{
 		$this->tpl->assign('orderField',$this->orderField);
 		$this->tpl->assign('valueSearch',$this->valueSearch);
 		$this->tpl->assign('order',$this->order);
+		$this->tpl->assign('view', $_SESSION['view']);
+		$this->tpl->assign('numRecords', $this->getNumRecords());
+		
 		if(isset($this->templateData[$this->listTemplate])){
 			//$this->tpl->assign('data', $this->templateData[$this->listTemplate]);
 		}
